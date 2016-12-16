@@ -22,7 +22,7 @@ var mongoose = require('mongoose'),
 /*
 *  database information
 */
-    dbURI = 'mongodb://localhost/mean_store';
+    dbURI = 'mongodb://localhost/mean_bb';
 /*
 * Connect to the database
 */

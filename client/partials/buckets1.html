@@ -1,13 +1,13 @@
 <h1>On Products</h1>
-<form ng-submit="addPrdct( newPrdct )">
+<form ng-submit="addBckt( newBckt )">
   Name:
-  <input style="display:block" type="text" ng-model="newPrdct.name">
+  <input style="display:block" type="text" ng-model="newBckt.name">
   Description:
-  <textarea style="display:block" type="text" ng-model="newPrdct.desc"></textarea>
+  <textarea style="display:block" type="text" ng-model="newBckt.desc"></textarea>
   Quantity:
-  <input style="display:block" type="text" ng-model="newPrdct.qty">
+  <input style="display:block" type="text" ng-model="newBckt.qty">
   Img Url:
-  <input style="display:block" type="text" ng-model="newPrdct.img">
+  <input style="display:block" type="text" ng-model="newBckt.img">
   <input style="display:block" type="submit" value="Add New Customer">
 </form>
 <input type="text" ng-model="filter_name" value="">
@@ -29,7 +29,7 @@
       <td>{{ p.qty }}</td>
       <td><img src="{{ p.img }}"></td>
       <td>{{ p.createdAt }}</td>
-      <td><button type="button" ng-click="delPrdct(p._id)">Remove</button></td>
+      <td><button type="button" ng-click="delBckt(p._id)">Remove</button></td>
     </tr>
   </tbody>
 </table>

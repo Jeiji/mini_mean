@@ -1,8 +1,12 @@
 <h1>On Customers</h1>
-<form ng-submit="addCstmr( newCstmr )">
-  <input style="display:block" type="text" ng-model="newCstmr.name">
+<form name='cstmrForm' ng-submit="addCstmr( newCstmr )">
+  <input style="display:block" name='name' type="text" ng-model="newCstmr.name" required>
   <input style="display:block" type="submit" value="Add New Customer">
 </form>
+<div ng-repeat='err in errors'>
+  <p ng-if="(err.e === 'short')" >Tooo shooort</p>
+  <p ng-if="(err.e === 'long')" >Tooo looooooong</p>
+</div>
 <input type="text" ng-model="filter_name" value="">
 <table>
   <thead>

@@ -2,6 +2,8 @@ app.factory( 'cstmrFctry' , [ '$http' , function( http ){
   customers = [
     { name : 'Gordo' }
   ];
+
+
   customer = {};
   function cstmrFctry(){
     var _this = this;
@@ -19,6 +21,7 @@ app.factory( 'cstmrFctry' , [ '$http' , function( http ){
     };
 
     this.addCstmr = function( newCstmr , callbackToCtrl ){
+
       console.log(`TO CSTMRFCTRY FOR ADDCSTMR`);
       http.post( '/add_cstmr' , newCstmr ).then( function( res ){
         console.log(`BACK TO CSTMRFCTRY`);

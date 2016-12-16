@@ -9,9 +9,9 @@ app.config(function ($routeProvider) {
     templateUrl : 'customers.html',
     controller : 'cstmrCtrl'
   })
-  .when( '/products' , {
-    templateUrl : 'products.html',
-    controller : 'prdctCtrl'
+  .when( '/buckets' , {
+    templateUrl : 'buckets.html',
+    controller : 'bcktCtrl'
   })
   .when( '/orders' , {
     templateUrl : 'orders.html',

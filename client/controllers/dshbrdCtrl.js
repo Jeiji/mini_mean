@@ -1,42 +1,17 @@
-app.controller('dshbrdCtrl' , ['$scope' , 'ordrFctry' , 'prdctFctry' , 'cstmrFctry' ,  function( scope , of , pf , cf ) {
+app.controller('dshbrdCtrl' , ['$scope' , '$location' , 'bcktFctry' , 'prdctFctry' , 'usrFctry' ,  function( scope , location , of , pf , uf ) {
 
-    const idx = function(){
-      of.idx( function(dataFromFactory ){
-              scope.orders = dataFromFactory;
-      });
-    };
-
-    idx();
-
-
-    const idx_C_and_P = function(){
-    cf.idx( function( dataFromCF ){
-      scope.customers = dataFromCF
-    });
-    pf.idx( function( dataFromPF ){
-      scope.products = dataFromPF
+  const idxUsrs = function(){
+    uf.idx( function( allUsrs ){
+      scope.usrs = allUsrs
     });
   };
-  idx_C_and_P();
+  idxUsrs();
 
 
-  scope.range = function(n) {
-        return new Array(n);
-    };
-  scope.addOrdr = function( newOrdr ){
-    console.log(scope.newOrdr.pIdx);
-    scope.newOrdr.prdctId = products[newOrdr.pIdx]._id;
-    console.log(scope.newOrdr.prdctId);
-    of.addOrdr( newOrdr );
-    idx();
-
-  };
-
-  scope.delOrdr = function( victimId ){
-    of.delOrdr( victimId , function( dataFromFactory ){
-      console.log(dataFromFactory);
+  scope.usrLogin = function( usr ){
+    uf.addUsr( usr , function( res ){
+      location.url('/buckets')
     });
-    idx();
   };
 
 }]);

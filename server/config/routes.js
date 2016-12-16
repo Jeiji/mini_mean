@@ -1,58 +1,62 @@
 console.log(`Routes are up!`);
-const cstmrs = require('../controllers/cstmrs.js')
-const prdcts = require('../controllers/prdcts.js')
-const ordrs = require('../controllers/ordrs.js')
+const usrs = require('../controllers/usrs.js')
+// const bckts = require('../controllers/bckts.js')
+const bckts = require('../controllers/bckts.js')
 module.exports = function( app ){
 
-  app.get( '/cstmrs' , function( req , res ){
-    console.log(`TO / ROUTES IN BACKEND`);
-    cstmrs.idx( req , res );
+  app.get( '/usrs' , function( req , res ){
+    usrs.idx( req , res );
   });
 
-  app.post( '/add_cstmr' , function( req , res ){
-    console.log(`TO /ADD_CSTMR ROUTES IN BACKEND`);
+  app.post( '/add_usr' , function( req , res ){
+    console.log(`TO /ADD_USR ROUTES IN BACKEND`);
     console.log(req.body);
-    cstmrs.add( req , res );
+    usrs.add( req , res );
   });
 
-  app.delete( '/del_cstmr_:victimId' , function( req , res ){
-    cstmrs.delete( req , res );
+  app.delete( '/del_usr_:victimId' , function( req , res ){
+    usrs.delete( req , res );
   });
 
-  app.get( '/prdcts' , function( req , res ){
+  // app.get( '/bckts' , function( req , res ){
+  //   console.log(`TO / ROUTES IN BACKEND`);
+  //   bckts.idx( req , res );
+  // });
+  //
+  // app.get( '/dec_bckt_inv_:bcktId/:qty' , function( req , res ){
+  //   bckts.adj_inv( req , res );
+  // });
+  //
+  // app.delete( '/rep_inv/:bcktId/:qty' , function( req , res ){
+  //   bckts.rep_inv( req , res );
+  // });
+  //
+  // app.post( '/add_bckt' , function( req , res ){
+  //   console.log(`TO /ADD_CSTMR ROUTES IN BACKEND`);
+  //   console.log(req.body);
+  //   bckts.add( req , res );
+  // });
+  //
+  // app.delete( '/del_bckt_:victimId' , function( req , res ){
+  //   bckts.delete( req , res );
+  // });
+
+  app.post( '/add_bckt' , function( req , res ){
+    bckts.add( req , res );
+  });
+
+  app.post( '/do_bckt' , function( req , res ){
+    bckts.do( req , res );
+  });
+
+
+  app.get( '/bckts' , function( req , res ){
     console.log(`TO / ROUTES IN BACKEND`);
-    prdcts.idx( req , res );
+    bckts.idx( req , res );
   });
 
-  app.get( '/dec_prdct_inv_:prdctId/:qty' , function( req , res ){
-    prdcts.adj_inv( req , res );
-  });
-
-  app.delete( '/rep_inv/:prdctId/:qty' , function( req , res ){
-    prdcts.rep_inv( req , res );
-  });
-
-  app.post( '/add_prdct' , function( req , res ){
-    console.log(`TO /ADD_CSTMR ROUTES IN BACKEND`);
-    console.log(req.body);
-    prdcts.add( req , res );
-  });
-
-  app.delete( '/del_prdct_:victimId' , function( req , res ){
-    prdcts.delete( req , res );
-  });
-
-  app.post( '/add_ordr' , function( req , res ){
-    ordrs.add( req , res );
-  });
-
-  app.get( '/ordrs' , function( req , res ){
-    console.log(`TO / ROUTES IN BACKEND`);
-    ordrs.idx( req , res );
-  });
-
-  app.delete( '/del_ordr_:victimId' , function( req , res ){
-    ordrs.delete( req , res );
+  app.delete( '/del_bckt_:victimId' , function( req , res ){
+    bckts.delete( req , res );
   });
 
 
