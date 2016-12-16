@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-messages/angular-messages.js"></script>
+    <script src="assets/app.js"></script>
+    <!-- ***** FACTORIES ***** -->
+    <script src="factories/cstmrFctry.js"></script>
+    <script src="factories/prdctFctry.js"></script>
+    <script src="factories/ordrFctry.js"></script>
+    <!-- ***** CONTROLLERS ***** -->
+    <script src="controllers/idxCtrl.js"></script>
+    <script src="controllers/cstmrCtrl.js"></script>
+    <script src="controllers/prdctCtrl.js"></script>
+    <script src="controllers/ordrCtrl.js"></script>
+    <script src="controllers/dshbrdCtrl.js"></script>
+
+    <title>MEAN_Store</title>
+  </head>
+  <body ng-app='app'>
+    <a href="#!/dashboard">Dashboard</a> |
+    <a href="#!/products">Products</a> |
+    <a href="#!/customers">Customers</a> |
+    <a href="#!/orders">Orders</a> |
+    <div ng-view></div>
+  </body>
+</html>

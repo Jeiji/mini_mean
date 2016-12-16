@@ -1,0 +1,40 @@
+<h1>On Orders</h1>
+
+
+New Order:
+<form ng-submit="addOrdr( newOrdr )">
+
+  <select style="display:block" ng-model="newOrdr.cstmrId">
+    <option ng-repeat="cstmr in customers" value="{{ cstmr._id }}" >{{ cstmr.name }}</option>
+  </select>
+  <select style="display:block" ng-model="newOrdr.pIdx">
+    <option ng-repeat="prdct in products" value="{{ products.indexOf(prdct)  }}" >{{ prdct.name }}</option>
+  </select>
+  <select style="display:block" ng-if="newOrdr.pIdx" ng-model="newOrdr.qty">
+    <option ng-repeat="i in range(products[newOrdr.pIdx].qty) track by $index" value="{{ $index + 1 }}">{{ $index + 1 }}</option>
+  </select>
+
+  <input style="display:block" type="submit" value="Queue Order">
+</form>
+
+<input type="text" ng-model="filter_name" value="">
+<table>
+<thead>
+    <tr>
+      <th>Customer</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Created At</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat=" o in orders | filter : filter_name">
+      <td>{{ o._customer.name }}</td>
+      <td>{{ o._product.name }}</td>
+      <td>{{ o.qty }}</td>
+      <td>{{ o.createdAt | date:'EEE MM - d - yyyy , h:mm:ss a ' }}</td>
+      <td><button type="button" ng-click="delOrdr(o._id)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>

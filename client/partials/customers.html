@@ -1,0 +1,22 @@
+<h1>On Customers</h1>
+<form ng-submit="addCstmr( newCstmr )">
+  <input style="display:block" type="text" ng-model="newCstmr.name">
+  <input style="display:block" type="submit" value="Add New Customer">
+</form>
+<input type="text" ng-model="filter_name" value="">
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Created At</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat=" c in customers | filter : filter_name">
+      <td>{{ c.name }}</td>
+      <td>{{ c.createdAt }}</td>
+      <td><button type="button" ng-click="delCstmr(c._id)">Remove</button></td>
+    </tr>
+  </tbody>
+</table>
